@@ -15,7 +15,7 @@ if (isset($_POST['submitadd'])) {
     $laptopHarddisk = $_POST['laptopHarddisk'];
     $laptopOS = $_POST['laptopOS'];
     $laptopLaunchdate = $_POST['laptopLaunchdate'];
-    $laptopTag = $_POST['laptopTag'];
+    $laptopTag = implode(",", $_POST['latopBrand'], $_POST['laptopCategory'], $_POST['laptopProcessor']);
     $laptopGraphicscard = $_POST['laptopGraphicscard'];
     $laptopImage = $_FILES['laptopImage']['name'];
 

@@ -30,9 +30,9 @@
     <div class="form-group">
         <input type="date" class="form-control" name="laptopLaunchdate" placeholder="Launch date">
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <input type="text" class="form-control" name="laptopTag" placeholder="Laptop tags">
-    </div>
+    </div> -->
     <div class="form-group">
         <input type="number" class="form-control" name="laptopPrice" placeholder="Laptop price">
     </div>
