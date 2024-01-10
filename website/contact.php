@@ -92,7 +92,7 @@ if (isset($_SESSION['access']) != 'user') {
 			</div>
 		</div>
 	</form>
-<?php } ?>
+<?php mysqli_close($myconnect);} ?>
 
 
 

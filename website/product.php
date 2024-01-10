@@ -178,7 +178,7 @@
         $query = "INSERT INTO comment (comment_post_id, comment_author, comment_email, comment_content,
         comment_status, comment_date) VALUES ('{$post_id}', '{$comment_author}', '{$comment_email}', '{$comment_content}','Unapproved', now())";
         $insert_comment = mysqli_query($myconnect, $query);
-        close();
+        
       }
       ?>
       <br><br>
@@ -232,5 +232,6 @@
     </div>
 </main>
 <?php
+mysqli_close($myconnect);
 include "includes/footer.php";
 ?>

@@ -31,15 +31,13 @@
         $mpdf->writeHTML("<h1 align='center'>Dashboard Stats</h1> <br>");
         $mpdf->writeHTML("<h3 align='center'>User Details </h3><br>");
         $mpdf->cell('15','10','User ID','1','0','C');
-        $mpdf->cell('40','10',' First Name','1','0','C');
-        $mpdf->cell('40','10',' Last Name','1','0','C');
+        $mpdf->cell('40','10',' Full Name','1','0','C');
         $mpdf->cell('45','10',' Username','1','0','C');
         $mpdf->cell('50','10',' Email','1','1','C');
         
         while($rowUser=mysqli_fetch_assoc($stmt1)){
             $mpdf->cell('15','10',$rowUser['id'],'1','0','C');
-            $mpdf->cell('40','10',$rowUser['First_name'],'1','0','C');
-            $mpdf->cell('40','10',$rowUser['Last_name'],'1','0','C');
+            $mpdf->cell('40','10',$rowUser['Full_name'],'1','0','C');
             $mpdf->cell('45','10',$rowUser['userName'],'1','0','C');
             $mpdf->cell('50','10',$rowUser['email'],'1','1','C');
            

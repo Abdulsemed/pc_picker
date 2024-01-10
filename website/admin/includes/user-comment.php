@@ -21,7 +21,7 @@
                     <td><?php echo $contact_username; ?></td>
                     <td><?php echo $contact_email; ?></td>
                     <td><?php echo substr($contact_content, 0, 50); ?></td>
-                    <td><a href='comments.php?source=user&delete=<?php echo $contact_id; ?>'>Delete</a></td>
+                    <td><a href='comments.php?source=user&delete=<?php echo $contact_id; ?>' onclick="return confirm('Are you sure?');">Delete</a></td>
                 </tr>
             <?php } ?>
 
