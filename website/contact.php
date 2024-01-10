@@ -1,9 +1,15 @@
 <?php include "includes/header.php"; ?>
 <?php
 if (isset($_POST["contact_submit"])) {
+	$user = $_SESSION['user'];
+	$query = "SELECT * FROM user WHERE userName = '{$user}'";
+	$selectUser = mysqli_query($myconnect, $query);
+	$rows = mysqli_fetch_assoc($selectUser);
+	$user_name = $rows['userName'];
+	$user_email = $rows['email'];
 	// $user_id=$_POST[""];
-	$user_name = $_POST["username"];
-	$user_email = $_POST["email"];
+	// $user_name = $_POST["username"];
+	// $user_email = $_POST["email"];
 	$content = $_POST["content"];
 	// $to = "abdulsemedabdelila65@gmail.com";
 	// $from = "from: '{$user_email}'";
@@ -58,7 +64,7 @@ if (isset($_SESSION['access']) != 'user') {
 				</div>
 				<div class="col-md-9">
 					<div class="contact-form">
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label class="control-label col-sm-2" for="lname">User Name:</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="username" placeholder="Enter User Name" value="<?php echo $username; ?>" name="username">
@@ -69,7 +75,7 @@ if (isset($_SESSION['access']) != 'user') {
 							<div class="col-sm-10">
 								<input type="email" value="<?php echo $email; ?>" class="form-control" id="email" placeholder="Enter email" name="email">
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<label class="control-label col-sm-2" for="comment">Message:</label>
 							<div class="col-sm-10">
