@@ -12,7 +12,6 @@ if (isset($_POST["submit"])) {
     }
 
     $fname = check($_POST['firstname']);
-    $lname = check($_POST['lastname']);
     $email = check($_POST['email']);
     $username = check($_POST['Nusername']);
     session_start();
@@ -22,7 +21,7 @@ if (isset($_POST["submit"])) {
     $profilePic = check($_FILES['profilepic']['name']);
     $extension = strtolower(pathinfo($profilePic, PATHINFO_EXTENSION));
 
-    if (empty($fname) || empty($lname) || empty($email) || empty($username) || empty($password) || empty($confirmpass)) {
+    if (empty($fname) || empty($email) || empty($username) || empty($password) || empty($confirmpass)) {
         header("Location: ../register.php?error=empty%20fields");
         exit();
     } elseif (!preg_match("/^[a-z A-Z 0-9]*$/", $username)) {
@@ -75,7 +74,7 @@ if (isset($_POST["submit"])) {
                         return $result;
                     }
                     $token = generateNumericOTP(4);
-                    $sql = "INSERT INTO user(First_name, Last_name, username,password,email,profilepicture, Role, OTP_Pin, Verified) VALUES(?,?,?,?,?,?,?,?,?)";
+                    $sql = "INSERT INTO user(Full_name, username,password,email,profilepicture, Role, OTP_Pin, Verified) VALUES(?,?,?,?,?,?,?,?)";
                     $stmt = mysqli_stmt_init($myconnect);
 
                     if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -85,7 +84,7 @@ if (isset($_POST["submit"])) {
                         $Ver = "No";
                         $role = "user";
                         $hashedpass = password_hash($password, PASSWORD_DEFAULT);
-                        mysqli_stmt_bind_param($stmt, "sssssssss", $fname, $lname, $username, $hashedpass, $email, $profilePic, $role, $token, $Ver);
+                        mysqli_stmt_bind_param($stmt, "ssssssss", $fname, $username, $hashedpass, $email, $profilePic, $role, $token, $Ver);
                         mysqli_stmt_execute($stmt);
                         header("location: ../OTP_form.php?success=registerd");
                         exit();

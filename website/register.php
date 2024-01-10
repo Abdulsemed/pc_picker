@@ -41,12 +41,9 @@ if (isset($_SESSION['user'])) {
         </div>
         <div class="form-label-group">
             <input type="text" id="firstN" name="firstname" class="form-control" placeholder="Firstname" required autofocus>
-            <label for="firstN">First Name</label>
+            <label for="firstN">Full Name</label>
         </div>
-        <div class="form-label-group">
-            <input type="text" id="lastN" name="lastname" class="form-control" placeholder="Lastname" required autofocus>
-            <label for="lastN">Last Name</label>
-        </div>
+        
         <div class="form-label-group">
             <input autocomplete="off" type="text" id="userN" name="Nusername" class="form-control" placeholder="Username" required autofocus>
             <label for="userN">Username</label>
