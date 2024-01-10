@@ -13,8 +13,7 @@
             <thead>
                 <th>User_id</th>
                 <th>Username</th>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Fullname</th>
                 <th>Email</th>
             </thead>
             <tbody>
@@ -24,17 +23,15 @@
                 while ($row = mysqli_fetch_assoc($showAlluser)) {
                     $user_id = $row['id'];
                     $user_name = $row['userName'];
-                    $user_Fname = $row['First_name'];
-                    $user_Lname = $row['Last_name'];
+                    $user_Fname = $row['Full_name'];
                     $user_email = $row['email'];
                 ?>
                     <tr>
                         <td><?php echo $user_id; ?></td>
                         <td><?php echo $user_name; ?></td>
                         <td><?php echo $user_Fname; ?></td>
-                        <td><?php echo $user_Lname; ?></td>
                         <td><?php echo $user_email; ?></td>
-                        <td><a href='users.php?delete=<?php echo $user_id; ?>'>Delete</a></td>
+                        <td><a href='users.php?delete=<?php echo $user_id; ?>'onclick="return confirm('Are you sure?');">Delete</a></td>
                     </tr>
                 <?php } ?>
 
