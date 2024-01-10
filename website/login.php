@@ -52,7 +52,9 @@ if (isset($_SESSION['user'])) {
             <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Password</label>
         </div>
-
+        <div class="checkbox">
+        <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()"> Show Password
+        </div>
         <!-- <select name="access" class="login-access">
             <option value="User">User</option>
             <option value="Admin">Admin</option>
@@ -70,7 +72,17 @@ if (isset($_SESSION['user'])) {
 
         <p class="mt-5 mb-3 text-muted">&copy; 2021-2022 PC Picker</p>
     </form>
+<script>
+function togglePasswordVisibility() {
+    var passwordField = document.getElementById("inputPassword");
+    var showPasswordCheckbox = document.getElementById("showPassword");
 
+    if (showPasswordCheckbox.checked) {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
+}
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <!-- <script src="js/app.js"></script> -->
