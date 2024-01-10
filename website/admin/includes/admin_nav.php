@@ -9,7 +9,7 @@
             <a href="#" class=" dropdown-item"><i class="fa fa-user-circle" aria-hidden="true"></i>
                 Profile</a>
             <hr>
-            <a href="../logout.php" class=" dropdown-item  text-danger"><i class="fa fa-sign-out" aria-hidden="true"></i>
+            <a href="../logout.php" class=" dropdown-item  text-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-sign-out" aria-hidden="true"></i>
                 Sign out</a>
         </div>
     </ul>

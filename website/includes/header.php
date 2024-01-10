@@ -79,7 +79,7 @@ if (isset($_SESSION['user'])) {
             <a class="nav-link text-white" href="#" id="profile-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i>
               <?php echo $_SESSION['user']; ?><i class=" fa fa-fw fa-caret-down"></i></a>
             <div class="dropdown-menu" aria-labelledby="profile-dropdown">
-              <a href="logout.php" class=" dropdown-item  text-danger"><i class="fa fa-sign-out" aria-hidden="true"></i>
+              <a href="logout.php" class=" dropdown-item  text-danger" onclick="return confirm('Are you sure?');"><i class="fa fa-sign-out" aria-hidden="true"></i>
                 Sign out</a>
             </div>
           </ul>
@@ -146,7 +146,7 @@ if (isset($_SESSION['user'])) {
       if ($name !== 'Guest') {
       ?>
         <li>
-          <a href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>
+          <a href="logout.php" onclick="return confirm('Are you sure?');"><i class="fa fa-sign-out" aria-hidden="true"></i>
             Sign out</a>
         </li>
       <?php  } ?>
