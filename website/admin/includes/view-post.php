@@ -33,7 +33,7 @@
                 <td><?php echo $post_graphicscard; ?></td>
                 <td><?php echo $post_price; ?></td>
                 <td><a href='posts.php?source=edit_post&p_id=<?php echo $post_id; ?>'>Edit</a></td>
-                <td><a href='posts.php?delete=<?php echo $post_id; ?>'>Delete</a></td>
+                <td><a href='posts.php?delete=<?php echo $post_id; ?>' onclick="return confirm('Are you sure you want to delete this post?')">Delete</a></td>
             </tr>
         <?php }
         ?>
