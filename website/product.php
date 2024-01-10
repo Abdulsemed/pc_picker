@@ -164,9 +164,16 @@
       <?php
       if (isset($_POST['create_comment'])) {
         $post_id = $_GET['p_id'];
-        $comment_author = $_POST['comment_author'];
+        $user = $_SESSION['user'];
+        $query = "SELECT * FROM user WHERE userName = '{$user}'";
+        $selectUser = mysqli_query($myconnect, $query);
+        $rows = mysqli_fetch_assoc($selectUser);
+        // $user_name = 
+        // $user_email = 
+        $comment_author = $rows['userName'];
         $comment_content = $_POST['comment_content'];
-        $comment_email = $_POST['comment_email'];
+        $comment_email = $rows['email'];
+        // $_POST['comment_email'];
 
         $query = "INSERT INTO comment (comment_post_id, comment_author, comment_email, comment_content,
         comment_status, comment_date) VALUES ('{$post_id}', '{$comment_author}', '{$comment_email}', '{$comment_content}','Unapproved', now())";
@@ -205,14 +212,14 @@
         <div class="weller col-5">
           <h4>Leave a Comment:</h4>
           <form action="" method="POST" role="form">
-            <label for="author">Author</label>
+            <!-- <label for="author">Author</label>
             <div class="form-group">
               <input type="text" class="form-control" name="comment_author">
             </div>
             <label for="email">Email</label>
             <div class="form-group">
               <input type="email" class="form-control" name="comment_email" id="">
-            </div>
+            </div> -->
             <label for="comment">Your comment</label>
             <div class="form-group">
               <textarea name="comment_content" class="form-control" rows="3"></textarea>
